@@ -1,0 +1,31 @@
+print("🤖 Welcome to your chatbot!")
+
+# Dictionary of keyword-based responses
+responses = {
+    "what is your name": "My name is ChatBot. Nice to meet you!",
+    "how are you": "I'm doing great, thanks for asking! How about you?",
+    "thank you": "You're very welcome! 😊",
+    "who made you": "I was created using Python by a curious developer like you!",
+    "what do you do": "I'm here to chat with you and help however I can."
+}
+
+# Exit commands
+exit_commands = ["goodbye", "exit", "quit", "see you", "bye"]
+
+while True:
+    user_input = input("You: ").strip().lower()
+
+    if user_input in [cmd.lower() for cmd in exit_commands]:
+        print("ChatBot: Goodbye! 👋")
+        break
+
+    # Check for matching response
+    found_response = False
+    for keyword in responses:
+        if keyword in user_input:
+            print(f"ChatBot: {responses[keyword]}")
+            found_response = True
+            break
+
+    if not found_response:
+        print("ChatBot: Sorry, I didn't understand that. Could you rephrase? 🤔")
